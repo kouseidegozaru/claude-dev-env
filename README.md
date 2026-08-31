@@ -14,29 +14,33 @@ licenses/                同梱物のライセンス
 
 ## 使う側での導入
 
-```bash
-git subtree add --prefix=.claude https://github.com/kouseidegozaru/claude-dev-env main --squash
-```
+**このリポジトリのルート全体が `.claude/` の中身になる。** リポジトリ内に `.claude`
+サブディレクトリがあるわけではないので、コピー元はルートそのものを指定する。
 
-これだけで `.claude/settings.json` `.claude/CLAUDE.md` `.claude/skills/` が
-所定の位置に入り、追加設定なしで有効になる。
-
-更新:
+使う側のリポジトリのルートで:
 
 ```bash
-git subtree pull --prefix=.claude https://github.com/kouseidegozaru/claude-dev-env main --squash
+git clone --depth=1 https://github.com/kouseidegozaru/claude-dev-env /tmp/claude-dev-env-src
+rm -rf /tmp/claude-dev-env-src/.git
+cp -r /tmp/claude-dev-env-src ./.claude
+rm -rf /tmp/claude-dev-env-src
+chmod +x .claude/bin/rtk .claude/bin/rtk-hook.sh
+git add .claude
+git commit -m "Add .claude config from claude-dev-env"
 ```
+
+これで `.claude/settings.json` `.claude/CLAUDE.md` `.claude/skills/` が所定の位置に入り、
+追加設定なしで有効になる。更新も同じ手順（`.claude` を消してから再コピー）。
+履歴は追跡されないので、使う側で手を入れている場合は差分を手動でマージする。
 
 ### 前提
 
-- **`.claude/` が既に存在するリポジトリでは `subtree add` が失敗する。** 先に退避するか、
-  中身を手動でマージする。
-- **`git subtree` が使えない git がある。** このリポジトリの Codespace では PATH 上の
-  git 2.53.0 (`/usr/local/bin/git`) に `git-subtree` が入っておらず、
-  `/usr/bin/git` 2.43.0 にはある。使えない場合:
+- **`.claude/` が既に存在する場合、上のコマンドはそのままでは使えない。**
+  `cp -r src dest` は dest が既存だと `dest/src` として中にネストする。
+  中身だけ上書きするなら:
 
   ```bash
-  GIT_EXEC_PATH=/usr/lib/git-core git subtree add --prefix=.claude https://github.com/kouseidegozaru/claude-dev-env main --squash
+  cp -r /tmp/claude-dev-env-src/. ./.claude/
   ```
 
 - Claude Code をインストール済み
@@ -46,12 +50,32 @@ git subtree pull --prefix=.claude https://github.com/kouseidegozaru/claude-dev-e
 
 - 初回はプロジェクト設定のフックに対する信頼確認が出る。承認するとフックが有効になる。
 
+### 代替: git subtree
+
+履歴ごと追跡したい場合は subtree も使える。ただし制約が多い。
+
+```bash
+git subtree add --prefix=.claude https://github.com/kouseidegozaru/claude-dev-env main --squash
+git subtree pull --prefix=.claude https://github.com/kouseidegozaru/claude-dev-env main --squash
+```
+
+- **作業ツリーに未コミット変更があると `subtree add` が拒否される**
+  （`fatal: working tree has modifications. Cannot add.`）。先にコミットか stash。
+- **`.claude/` が既に存在するリポジトリでは `subtree add` が失敗する。**
+- **`git subtree` が入っていない git がある。** このリポジトリの Codespace では PATH 上の
+  git 2.53.0 (`/usr/local/bin/git`) に `git-subtree` が無く、`/usr/bin/git` 2.43.0 にはある。
+  その場合:
+
+  ```bash
+  GIT_EXEC_PATH=/usr/lib/git-core git subtree add --prefix=.claude https://github.com/kouseidegozaru/claude-dev-env main --squash
+  ```
+
 ## rtk バイナリについて
 
 `bin/rtk` は git に直接コミットしている（10MB）。**Git LFS は使っていない。**
-`git subtree` は内部で `git fetch` しか行わず、LFS の実体は fetch では転送されないため、
-使う側で smudge エラーになりファイルが展開されない。加えて使う側が `.gitattributes` を
-継承し、git-lfs 必須・自前の LFS ストレージ消費が伝染する。
+LFS にすると使う側に git-lfs 必須・自前の LFS ストレージ消費が伝染する。
+特に `git subtree` は内部で `git fetch` しか行わず、LFS の実体は fetch では転送されないため、
+使う側で smudge エラーになりファイルが展開されない。
 
 バイナリは static-pie（musl 静的リンク）で glibc 非依存。**x86_64 Linux 専用**。
 macOS / arm64 では動かないので、その場合は各自 `~/.local/bin` に入れて
@@ -61,7 +85,7 @@ macOS / arm64 では動かないので、その場合は各自 `~/.local/bin` �
 
 ルートが `.claude` の中身であるという構造上、このリポジトリを直接開いても
 `settings.json` や `CLAUDE.md` は読まれない（Claude Code が見るのは `.claude/` 配下）。
-挙動を確認したいときは、別のリポジトリに subtree して試す。
+挙動を確認したいときは、別のリポジトリの `.claude/` に入れて試す。
 
 ## 同梱物
 
