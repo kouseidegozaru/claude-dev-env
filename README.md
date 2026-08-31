@@ -39,6 +39,11 @@ git subtree pull --prefix=.claude https://github.com/kouseidegozaru/claude-dev-e
   GIT_EXEC_PATH=/usr/lib/git-core git subtree add --prefix=.claude https://github.com/kouseidegozaru/claude-dev-env main --squash
   ```
 
+- Claude Code をインストール済み
+  ```bash
+  curl -fsSL https://claude.ai/install.sh | bash
+  ```
+
 - 初回はプロジェクト設定のフックに対する信頼確認が出る。承認するとフックが有効になる。
 
 ## rtk バイナリについて
