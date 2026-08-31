@@ -1,0 +1,7 @@
+# 使う側の .claude/ には不要なもの。git archive での配布時に除外される。
+# このリポジトリ自身の説明であって、Claude Code の動作には関与しない。
+README.md      export-ignore
+.gitattributes export-ignore
+
+# licenses/ は除外しない。rtk (Apache-2.0) と genshijin (MIT) は
+# 再配布時のライセンス文同梱を要求するため、配布物に含める必要がある。

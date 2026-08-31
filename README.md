@@ -10,38 +10,39 @@ bin/rtk-hook.sh          フックのシム
 skills/genshijin/        原始人モード（超圧縮コミュニケーション）
 skills/grill-me/         計画・設計の詰問
 licenses/                同梱物のライセンス
+README.md                このファイル。配布物には含まれない（export-ignore）
+.gitattributes           配布対象の指定。同上
 ```
 
 ## 使う側での導入
 
 **このリポジトリのルート全体が `.claude/` の中身になる。** リポジトリ内に `.claude`
-サブディレクトリがあるわけではないので、コピー元はルートそのものを指定する。
+サブディレクトリがあるわけではないので、展開元はルートそのものになる。
 
 使う側のリポジトリのルートで:
 
 ```bash
 git clone --depth=1 https://github.com/kouseidegozaru/claude-dev-env /tmp/claude-dev-env-src
-rm -rf /tmp/claude-dev-env-src/.git
-cp -r /tmp/claude-dev-env-src ./.claude
+mkdir -p .claude
+git -C /tmp/claude-dev-env-src archive HEAD | tar -x -C .claude
 rm -rf /tmp/claude-dev-env-src
-chmod +x .claude/bin/rtk .claude/bin/rtk-hook.sh
 git add .claude
 git commit -m "Add .claude config from claude-dev-env"
 ```
 
 これで `.claude/settings.json` `.claude/CLAUDE.md` `.claude/skills/` が所定の位置に入り、
-追加設定なしで有効になる。更新も同じ手順（`.claude` を消してから再コピー）。
+追加設定なしで有効になる。更新も同じ手順（同じコマンドを再実行すれば上書きされる）。
 履歴は追跡されないので、使う側で手を入れている場合は差分を手動でマージする。
 
+`cp -r` ではなく `git archive | tar -x` を使う理由:
+
+- `.gitattributes` の `export-ignore`（README 等）が効くのは `git archive` だけ
+- `.git` が混入しない（tracked file のみ展開される）
+- `bin/rtk` の実行ビットが保たれる（`chmod +x` 不要）
+- `.claude/` が既に存在しても中身が展開される。`cp -r src dest` のように
+  `dest/src` へネストしない
+
 ### 前提
-
-- **`.claude/` が既に存在する場合、上のコマンドはそのままでは使えない。**
-  `cp -r src dest` は dest が既存だと `dest/src` として中にネストする。
-  中身だけ上書きするなら:
-
-  ```bash
-  cp -r /tmp/claude-dev-env-src/. ./.claude/
-  ```
 
 - Claude Code をインストール済み
   ```bash
