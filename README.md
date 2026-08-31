@@ -15,7 +15,7 @@ licenses/                同梱物のライセンス
 ## 使う側での導入
 
 ```bash
-git subtree add --prefix=.claude <このリポジトリのURL> main --squash
+git subtree add --prefix=.claude https://github.com/kouseidegozaru/claude-dev-env main --squash
 ```
 
 これだけで `.claude/settings.json` `.claude/CLAUDE.md` `.claude/skills/` が
@@ -24,7 +24,7 @@ git subtree add --prefix=.claude <このリポジトリのURL> main --squash
 更新:
 
 ```bash
-git subtree pull --prefix=.claude <このリポジトリのURL> main --squash
+git subtree pull --prefix=.claude https://github.com/kouseidegozaru/claude-dev-env main --squash
 ```
 
 ### 前提
@@ -36,7 +36,7 @@ git subtree pull --prefix=.claude <このリポジトリのURL> main --squash
   `/usr/bin/git` 2.43.0 にはある。使えない場合:
 
   ```bash
-  GIT_EXEC_PATH=/usr/lib/git-core git subtree add --prefix=.claude <URL> main --squash
+  GIT_EXEC_PATH=/usr/lib/git-core git subtree add --prefix=.claude https://github.com/kouseidegozaru/claude-dev-env main --squash
   ```
 
 - 初回はプロジェクト設定のフックに対する信頼確認が出る。承認するとフックが有効になる。
