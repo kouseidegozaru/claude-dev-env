@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh \"${CLAUDE_PROJECT_DIR:-.}/.claude/bin/rtk-hook.sh\"",
+            "timeout": 10,
+            "statusMessage": "rtk 圧縮中..."
+          }
+        ]
+      }
+    ]
+  }
+}
