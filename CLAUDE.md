@@ -34,6 +34,7 @@ bash 出力は rtk 経由で圧縮する。PreToolUse フックが `git status` 
 
 - `/genshijin` — 原始人モード起動・強度切替（丁寧/通常/極限/off）
 - `/grill-me` — 計画・設計を AskUserQuestion で1問ずつ詰問。設計を固めるとき使う
+- `/breakthrough` — 多数のサブエージェントで発散→交配→批判→進化→収束。最適かつ革新的な解を導く
 
 ## 作業ルール
 

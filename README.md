@@ -9,6 +9,7 @@ bin/rtk                  Rust Token Killer 本体（10MB, x86_64 Linux 専用）
 bin/rtk-hook.sh          フックのシム
 skills/genshijin/        原始人モード（超圧縮コミュニケーション）
 skills/grill-me/         計画・設計の詰問
+skills/breakthrough/     多数のサブエージェントで革新的な解を導出
 licenses/                同梱物のライセンス
 README.md                このファイル。配布物には含まれない（export-ignore）
 .gitattributes           配布対象の指定。同上
