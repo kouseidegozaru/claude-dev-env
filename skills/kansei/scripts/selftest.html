@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>kansei selftest</title>
+<style>
+  /* 地色は html にだけ指定し、body は透明のまま（地色の取りこぼしを確かめる） */
+  html{background:#EAE3D6}
+  body{margin:0;color:#222222;font-family:sans-serif;font-size:16px;line-height:1.8}
+  main{max-width:640px;margin:0 auto;padding:120px 24px 160px}
+  h1{font-size:40px;font-weight:normal;line-height:1.4;margin:0 0 48px}
+  p{margin:0 0 1em}
+  .mark{display:block;width:360px;height:48px;background:#B5452B;margin:64px 0}
+  .v{writing-mode:vertical-rl;font-size:14px;height:8em;margin-top:64px}
+</style>
+</head>
+<body>
+<main>
+  <h1>試験用の見出し</h1>
+  <p>この頁は測定スクリプトの自己確認に使う。地色が最大の面積になり、差し色は小さな帯だけに出る。</p>
+  <p>本文は十六ピクセル、行間は一・八。文字は濃い灰色で、純黒は使わない。</p>
+  <span class="mark" aria-hidden="true"></span>
+  <p>帯の下にもう一段落。ここまでで本文のサイズが最も多くなるようにしてある。</p>
+  <div class="v">縦書きの一行</div>
+</main>
+</body>
+</html>
