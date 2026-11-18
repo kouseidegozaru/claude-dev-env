@@ -57,7 +57,11 @@ SF2_FILES = [
     ("FluidR3_GM", "/usr/share/sounds/sf2/FluidR3_GM.sf2", 100_000_000),
     ("MuseScore_General", "/usr/share/sounds/sf3/MuseScore_General_Full.sf3", 50_000_000),
     ("GeneralUser_GS", f"{SF_DIR}/GeneralUser-GS.sf2", 20_000_000),
-    ("forge_piano", os.path.join(SKILL, "instruments/forge_piano.sf2"), 30_000_000),
+]
+# forge_piano の SF2 本体はスキル外に置く運用もあるため、候補のどれかで判定する
+FORGE_CANDIDATES = [
+    os.path.join(SKILL, "instruments/forge_piano.sf2"),
+    os.path.expanduser("~/workspace/custom-skills/bgm-compose/instruments/forge_piano.sf2"),
 ]
 EXPECTED_PRESETS = {"clean", "twang", "lofi", "crunch", "overdrive", "blues",
                     "distortion", "lead_drive", "fuzz", "metal", "chorus_clean",
@@ -148,6 +152,10 @@ def main():
     for name, path, min_size in SF2_FILES:
         ok = os.path.exists(path) and os.path.getsize(path) >= min_size
         report(f"sf2:{name}", ok, path)
+    forge = next((p for p in FORGE_CANDIDATES
+                  if os.path.exists(p) and os.path.getsize(p) >= 30_000_000), None)
+    report("sf2:forge_piano", forge is not None,
+           forge or "not found in candidate locations")
 
     # 6. 作曲スモーク（両実例＋記譜確認）
     for ex in ("spec_spring_noon", "spec_loop_lake"):
