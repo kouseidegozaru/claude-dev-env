@@ -1,0 +1,79 @@
+// Forge Piano: Salamander Grand Piano (CC BY 3.0) の単音サンプルから組んだ自作ピアノ。
+// 設計の正はこのファイル。scripts/sfz2sf2.py が描画用 SF2 へ決定的に変換する。
+// 宣言音域 MIDI 54-81 (根音から +/-3 半音以内にゾーンを制限)。
+// 層境界 vel 40/72/100。volume の層オフセットは検品の層別 RMS (先頭1秒, L/R パワー平均) から
+// 「最も弱い層に素材レベルを揃える」形で算出した値。pan は校正の掃引で決めた +/-50%。
+// <global> volume は校正で決めた全体ゲイン (dB)。
+<global> volume=10.20
+
+<region> sample=wav/A3v3_L.wav pitch_keycenter=57 lokey=54 hikey=58 lovel=0 hivel=40 volume=-0.00 pan=-50
+<region> sample=wav/A3v3_R.wav pitch_keycenter=57 lokey=54 hikey=58 lovel=0 hivel=40 volume=-0.00 pan=50
+<region> sample=wav/A3v5_L.wav pitch_keycenter=57 lokey=54 hikey=58 lovel=41 hivel=72 volume=-3.63 pan=-50
+<region> sample=wav/A3v5_R.wav pitch_keycenter=57 lokey=54 hikey=58 lovel=41 hivel=72 volume=-3.63 pan=50
+<region> sample=wav/A3v8_L.wav pitch_keycenter=57 lokey=54 hikey=58 lovel=73 hivel=100 volume=-6.24 pan=-50
+<region> sample=wav/A3v8_R.wav pitch_keycenter=57 lokey=54 hikey=58 lovel=73 hivel=100 volume=-6.24 pan=50
+<region> sample=wav/A3v11_L.wav pitch_keycenter=57 lokey=54 hikey=58 lovel=101 hivel=127 volume=-9.82 pan=-50
+<region> sample=wav/A3v11_R.wav pitch_keycenter=57 lokey=54 hikey=58 lovel=101 hivel=127 volume=-9.82 pan=50
+
+<region> sample=wav/C4v3_L.wav pitch_keycenter=60 lokey=59 hikey=61 lovel=0 hivel=40 volume=-0.00 pan=-50
+<region> sample=wav/C4v3_R.wav pitch_keycenter=60 lokey=59 hikey=61 lovel=0 hivel=40 volume=-0.00 pan=50
+<region> sample=wav/C4v5_L.wav pitch_keycenter=60 lokey=59 hikey=61 lovel=41 hivel=72 volume=-2.96 pan=-50
+<region> sample=wav/C4v5_R.wav pitch_keycenter=60 lokey=59 hikey=61 lovel=41 hivel=72 volume=-2.96 pan=50
+<region> sample=wav/C4v8_L.wav pitch_keycenter=60 lokey=59 hikey=61 lovel=73 hivel=100 volume=-5.13 pan=-50
+<region> sample=wav/C4v8_R.wav pitch_keycenter=60 lokey=59 hikey=61 lovel=73 hivel=100 volume=-5.13 pan=50
+<region> sample=wav/C4v11_L.wav pitch_keycenter=60 lokey=59 hikey=61 lovel=101 hivel=127 volume=-8.77 pan=-50
+<region> sample=wav/C4v11_R.wav pitch_keycenter=60 lokey=59 hikey=61 lovel=101 hivel=127 volume=-8.77 pan=50
+
+<region> sample=wav/Ds4v3_L.wav pitch_keycenter=63 lokey=62 hikey=64 lovel=0 hivel=40 volume=-0.00 pan=-50
+<region> sample=wav/Ds4v3_R.wav pitch_keycenter=63 lokey=62 hikey=64 lovel=0 hivel=40 volume=-0.00 pan=50
+<region> sample=wav/Ds4v5_L.wav pitch_keycenter=63 lokey=62 hikey=64 lovel=41 hivel=72 volume=-2.33 pan=-50
+<region> sample=wav/Ds4v5_R.wav pitch_keycenter=63 lokey=62 hikey=64 lovel=41 hivel=72 volume=-2.33 pan=50
+<region> sample=wav/Ds4v8_L.wav pitch_keycenter=63 lokey=62 hikey=64 lovel=73 hivel=100 volume=-5.09 pan=-50
+<region> sample=wav/Ds4v8_R.wav pitch_keycenter=63 lokey=62 hikey=64 lovel=73 hivel=100 volume=-5.09 pan=50
+<region> sample=wav/Ds4v11_L.wav pitch_keycenter=63 lokey=62 hikey=64 lovel=101 hivel=127 volume=-6.80 pan=-50
+<region> sample=wav/Ds4v11_R.wav pitch_keycenter=63 lokey=62 hikey=64 lovel=101 hivel=127 volume=-6.80 pan=50
+
+<region> sample=wav/Fs4v3_L.wav pitch_keycenter=66 lokey=65 hikey=67 lovel=0 hivel=40 volume=-0.00 pan=-50
+<region> sample=wav/Fs4v3_R.wav pitch_keycenter=66 lokey=65 hikey=67 lovel=0 hivel=40 volume=-0.00 pan=50
+<region> sample=wav/Fs4v5_L.wav pitch_keycenter=66 lokey=65 hikey=67 lovel=41 hivel=72 volume=-2.79 pan=-50
+<region> sample=wav/Fs4v5_R.wav pitch_keycenter=66 lokey=65 hikey=67 lovel=41 hivel=72 volume=-2.79 pan=50
+<region> sample=wav/Fs4v8_L.wav pitch_keycenter=66 lokey=65 hikey=67 lovel=73 hivel=100 volume=-6.02 pan=-50
+<region> sample=wav/Fs4v8_R.wav pitch_keycenter=66 lokey=65 hikey=67 lovel=73 hivel=100 volume=-6.02 pan=50
+<region> sample=wav/Fs4v11_L.wav pitch_keycenter=66 lokey=65 hikey=67 lovel=101 hivel=127 volume=-8.57 pan=-50
+<region> sample=wav/Fs4v11_R.wav pitch_keycenter=66 lokey=65 hikey=67 lovel=101 hivel=127 volume=-8.57 pan=50
+
+<region> sample=wav/A4v3_L.wav pitch_keycenter=69 lokey=68 hikey=70 lovel=0 hivel=40 volume=-0.00 pan=-50
+<region> sample=wav/A4v3_R.wav pitch_keycenter=69 lokey=68 hikey=70 lovel=0 hivel=40 volume=-0.00 pan=50
+<region> sample=wav/A4v5_L.wav pitch_keycenter=69 lokey=68 hikey=70 lovel=41 hivel=72 volume=-4.64 pan=-50
+<region> sample=wav/A4v5_R.wav pitch_keycenter=69 lokey=68 hikey=70 lovel=41 hivel=72 volume=-4.64 pan=50
+<region> sample=wav/A4v8_L.wav pitch_keycenter=69 lokey=68 hikey=70 lovel=73 hivel=100 volume=-7.21 pan=-50
+<region> sample=wav/A4v8_R.wav pitch_keycenter=69 lokey=68 hikey=70 lovel=73 hivel=100 volume=-7.21 pan=50
+<region> sample=wav/A4v11_L.wav pitch_keycenter=69 lokey=68 hikey=70 lovel=101 hivel=127 volume=-9.69 pan=-50
+<region> sample=wav/A4v11_R.wav pitch_keycenter=69 lokey=68 hikey=70 lovel=101 hivel=127 volume=-9.69 pan=50
+
+<region> sample=wav/C5v3_L.wav pitch_keycenter=72 lokey=71 hikey=73 lovel=0 hivel=40 volume=-0.00 pan=-50
+<region> sample=wav/C5v3_R.wav pitch_keycenter=72 lokey=71 hikey=73 lovel=0 hivel=40 volume=-0.00 pan=50
+<region> sample=wav/C5v5_L.wav pitch_keycenter=72 lokey=71 hikey=73 lovel=41 hivel=72 volume=-3.24 pan=-50
+<region> sample=wav/C5v5_R.wav pitch_keycenter=72 lokey=71 hikey=73 lovel=41 hivel=72 volume=-3.24 pan=50
+<region> sample=wav/C5v8_L.wav pitch_keycenter=72 lokey=71 hikey=73 lovel=73 hivel=100 volume=-4.66 pan=-50
+<region> sample=wav/C5v8_R.wav pitch_keycenter=72 lokey=71 hikey=73 lovel=73 hivel=100 volume=-4.66 pan=50
+<region> sample=wav/C5v11_L.wav pitch_keycenter=72 lokey=71 hikey=73 lovel=101 hivel=127 volume=-7.59 pan=-50
+<region> sample=wav/C5v11_R.wav pitch_keycenter=72 lokey=71 hikey=73 lovel=101 hivel=127 volume=-7.59 pan=50
+
+<region> sample=wav/Ds5v3_L.wav pitch_keycenter=75 lokey=74 hikey=76 lovel=0 hivel=40 volume=-0.00 pan=-50
+<region> sample=wav/Ds5v3_R.wav pitch_keycenter=75 lokey=74 hikey=76 lovel=0 hivel=40 volume=-0.00 pan=50
+<region> sample=wav/Ds5v5_L.wav pitch_keycenter=75 lokey=74 hikey=76 lovel=41 hivel=72 volume=-1.53 pan=-50
+<region> sample=wav/Ds5v5_R.wav pitch_keycenter=75 lokey=74 hikey=76 lovel=41 hivel=72 volume=-1.53 pan=50
+<region> sample=wav/Ds5v8_L.wav pitch_keycenter=75 lokey=74 hikey=76 lovel=73 hivel=100 volume=-3.66 pan=-50
+<region> sample=wav/Ds5v8_R.wav pitch_keycenter=75 lokey=74 hikey=76 lovel=73 hivel=100 volume=-3.66 pan=50
+<region> sample=wav/Ds5v11_L.wav pitch_keycenter=75 lokey=74 hikey=76 lovel=101 hivel=127 volume=-6.64 pan=-50
+<region> sample=wav/Ds5v11_R.wav pitch_keycenter=75 lokey=74 hikey=76 lovel=101 hivel=127 volume=-6.64 pan=50
+
+<region> sample=wav/Fs5v3_L.wav pitch_keycenter=78 lokey=77 hikey=81 lovel=0 hivel=40 volume=-0.00 pan=-50
+<region> sample=wav/Fs5v3_R.wav pitch_keycenter=78 lokey=77 hikey=81 lovel=0 hivel=40 volume=-0.00 pan=50
+<region> sample=wav/Fs5v5_L.wav pitch_keycenter=78 lokey=77 hikey=81 lovel=41 hivel=72 volume=-3.02 pan=-50
+<region> sample=wav/Fs5v5_R.wav pitch_keycenter=78 lokey=77 hikey=81 lovel=41 hivel=72 volume=-3.02 pan=50
+<region> sample=wav/Fs5v8_L.wav pitch_keycenter=78 lokey=77 hikey=81 lovel=73 hivel=100 volume=-5.58 pan=-50
+<region> sample=wav/Fs5v8_R.wav pitch_keycenter=78 lokey=77 hikey=81 lovel=73 hivel=100 volume=-5.58 pan=50
+<region> sample=wav/Fs5v11_L.wav pitch_keycenter=78 lokey=77 hikey=81 lovel=101 hivel=127 volume=-8.35 pan=-50
+<region> sample=wav/Fs5v11_R.wav pitch_keycenter=78 lokey=77 hikey=81 lovel=101 hivel=127 volume=-8.35 pan=50

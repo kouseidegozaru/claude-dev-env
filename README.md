@@ -12,6 +12,7 @@ skills/grill-me/         計画・設計の詰問
 skills/breakthrough/     多数のサブエージェントで革新的な解を導出
 skills/kansei/           参考作品の感性を学習→制作→講評（測定スクリプト同梱）
 skills/keiyaku/          契約数の増加: ファネル診断→施策の優先順位→A/B 検証（計算スクリプト同梱）
+skills/bgm-compose/      BGM作曲: 仕様書→MIDI→実録サンプル描画→計測マスタリング（作曲・ギター音作り・楽器台帳を統合、スクリプト同梱）
 licenses/                同梱物のライセンス
 README.md                このファイル。配布物には含まれない（export-ignore）
 .gitattributes           配布対象の指定。同上

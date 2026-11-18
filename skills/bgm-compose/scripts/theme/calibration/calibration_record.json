@@ -1,0 +1,335 @@
+{
+ "format": "calibration-record/1",
+ "authority_rule": {
+  "dev_min_n": 29,
+  "detection_lower95_min": 0.9,
+  "fp_upper95_max": 0.1,
+  "holdout_detection_min": 0.8,
+  "holdout_good_fp_must_be": 0,
+  "external_fp_must_be": 0
+ },
+ "external_goods": {
+  "twinkle": {
+   "checks": {
+    "rhythm": true,
+    "cadence": true,
+    "range": true,
+    "breath": true,
+    "motif": true
+   },
+   "authority_gate": true
+  },
+  "mary": {
+   "checks": {
+    "rhythm": true,
+    "cadence": true,
+    "range": true,
+    "breath": true,
+    "motif": true
+   },
+   "authority_gate": true
+  },
+  "frere": {
+   "checks": {
+    "rhythm": true,
+    "cadence": true,
+    "range": true,
+    "breath": true,
+    "motif": true
+   },
+   "authority_gate": true
+  },
+  "ode": {
+   "checks": {
+    "rhythm": true,
+    "cadence": true,
+    "range": true,
+    "breath": true,
+    "motif": true
+   },
+   "authority_gate": true
+  },
+  "jingle": {
+   "checks": {
+    "rhythm": true,
+    "cadence": true,
+    "range": true,
+    "breath": true,
+    "motif": true
+   },
+   "authority_gate": true
+  }
+ },
+ "external_controls": {
+  "scale_practice_1": {
+   "checks": {
+    "rhythm": true,
+    "cadence": true,
+    "range": true,
+    "breath": true,
+    "motif": true
+   },
+   "authority_gate": true
+  },
+  "scale_practice_2": {
+   "checks": {
+    "rhythm": true,
+    "cadence": true,
+    "range": true,
+    "breath": true,
+    "motif": true
+   },
+   "authority_gate": true
+  },
+  "sequence_only_1": {
+   "checks": {
+    "rhythm": true,
+    "cadence": true,
+    "range": true,
+    "breath": true,
+    "motif": true
+   },
+   "authority_gate": true
+  },
+  "sequence_only_2": {
+   "checks": {
+    "rhythm": true,
+    "cadence": true,
+    "range": true,
+    "breath": true,
+    "motif": true
+   },
+   "authority_gate": true
+  }
+ },
+ "classes": {
+  "no_motif_a": {
+   "n": 64,
+   "detected_full_gate": 61,
+   "attribution": {
+    "range": 16,
+    "motif": 61
+   }
+  },
+  "no_motif_b": {
+   "n": 64,
+   "detected_full_gate": 61,
+   "attribution": {
+    "range": 22,
+    "motif": 58
+   }
+  },
+  "single_dur_a": {
+   "n": 40,
+   "detected_full_gate": 40,
+   "attribution": {
+    "rhythm": 40,
+    "breath": 40
+   }
+  },
+  "single_dur_b": {
+   "n": 32,
+   "detected_full_gate": 32,
+   "attribution": {
+    "rhythm": 32,
+    "breath": 32
+   }
+  },
+  "no_cadence_a": {
+   "n": 40,
+   "detected_full_gate": 40,
+   "attribution": {
+    "cadence": 40
+   }
+  },
+  "no_cadence_b": {
+   "n": 32,
+   "detected_full_gate": 32,
+   "attribution": {
+    "cadence": 32
+   }
+  },
+  "wide_leaps_a": {
+   "n": 40,
+   "detected_full_gate": 40,
+   "attribution": {
+    "range": 40
+   }
+  },
+  "wide_leaps_b": {
+   "n": 32,
+   "detected_full_gate": 32,
+   "attribution": {
+    "range": 32,
+    "motif": 32
+   }
+  },
+  "no_breath_a": {
+   "n": 40,
+   "detected_full_gate": 40,
+   "attribution": {
+    "breath": 40
+   }
+  },
+  "no_breath_b": {
+   "n": 32,
+   "detected_full_gate": 32,
+   "attribution": {
+    "breath": 32
+   }
+  },
+  "pitch_shuffle": {
+   "n": 30,
+   "detected_full_gate": 30,
+   "attribution": {
+    "cadence": 22,
+    "motif": 30,
+    "range": 8
+   }
+  },
+  "rhythm_shuffle": {
+   "n": 30,
+   "detected_full_gate": 2,
+   "attribution": {
+    "rhythm": 2
+   }
+  },
+  "sequence_only": {
+   "n": 40,
+   "detected_full_gate": 40,
+   "attribution": {
+    "range": 40
+   }
+  }
+ },
+ "authority": {
+  "motif": {
+   "authority": false,
+   "dev_detected": 61,
+   "dev_n": 64,
+   "dev_lower95": 0.883,
+   "holdout_detected": 58,
+   "holdout_n": 64,
+   "holdout_rate": 0.906,
+   "fp_good": 0,
+   "fp_good_n": 64,
+   "fp_upper95": 0.046,
+   "fp_holdout_good": 0,
+   "fp_external": 0
+  },
+  "rhythm": {
+   "authority": true,
+   "dev_detected": 40,
+   "dev_n": 40,
+   "dev_lower95": 0.928,
+   "holdout_detected": 32,
+   "holdout_n": 32,
+   "holdout_rate": 1.0,
+   "fp_good": 0,
+   "fp_good_n": 64,
+   "fp_upper95": 0.046,
+   "fp_holdout_good": 0,
+   "fp_external": 0
+  },
+  "cadence": {
+   "authority": true,
+   "dev_detected": 40,
+   "dev_n": 40,
+   "dev_lower95": 0.928,
+   "holdout_detected": 32,
+   "holdout_n": 32,
+   "holdout_rate": 1.0,
+   "fp_good": 0,
+   "fp_good_n": 64,
+   "fp_upper95": 0.046,
+   "fp_holdout_good": 0,
+   "fp_external": 0
+  },
+  "range": {
+   "authority": true,
+   "dev_detected": 40,
+   "dev_n": 40,
+   "dev_lower95": 0.928,
+   "holdout_detected": 32,
+   "holdout_n": 32,
+   "holdout_rate": 1.0,
+   "fp_good": 0,
+   "fp_good_n": 64,
+   "fp_upper95": 0.046,
+   "fp_holdout_good": 0,
+   "fp_external": 0
+  },
+  "breath": {
+   "authority": true,
+   "dev_detected": 40,
+   "dev_n": 40,
+   "dev_lower95": 0.928,
+   "holdout_detected": 32,
+   "holdout_n": 32,
+   "holdout_rate": 1.0,
+   "fp_good": 0,
+   "fp_good_n": 64,
+   "fp_upper95": 0.046,
+   "fp_holdout_good": 0,
+   "fp_external": 0
+  }
+ },
+ "coverage": {
+  "pitch_shuffle": {
+   "detected": 30,
+   "n": 30
+  },
+  "rhythm_shuffle": {
+   "detected": 2,
+   "n": 30
+  },
+  "sequence_only_controls": {
+   "authority_gate_pass": {
+    "sequence_only_1": true,
+    "sequence_only_2": true
+   },
+   "note": "realistic sequence-only themes pass the gate; the gate does not cover this defect"
+  },
+  "sequence_only_programmatic": {
+   "detected": 40,
+   "n": 40,
+   "note": "caught incidentally by the range checker when the sequence climbs out of range; not coverage of the sequence-only defect itself"
+  }
+ },
+ "operational": {
+  "full_gate_fp_good": [
+   0,
+   64
+  ],
+  "full_gate_fp_holdout_good": [
+   0,
+   30
+  ],
+  "walk_pass_independent_reprise": [
+   8,
+   100
+  ],
+  "walk_pass_copy_reprise": [
+   11,
+   100
+  ],
+  "variation_pass_+1": [
+   20,
+   20
+  ],
+  "variation_pass_-1": [
+   20,
+   20
+  ],
+  "variation_pass_+2": [
+   20,
+   20
+  ],
+  "variation_pass_-2": [
+   20,
+   20
+  ],
+  "pool44_ms": 5,
+  "calibration_wall_seconds": 0.6
+ }
+}
