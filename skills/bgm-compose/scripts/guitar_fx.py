@@ -13,7 +13,7 @@ import os
 import subprocess
 import sys
 
-IR_DIR = "/home/hatch/workspace/soundfonts/ir"
+IR_DIR = os.path.expanduser("~/workspace/soundfonts/ir")
 
 # キャビネット相当の共通 EQ（スピーカーの帯域に寄せる）
 CAB = "highpass=f=78,lowpass=f=6200,equalizer=f=320:width_type=o:width=1:g=-2"

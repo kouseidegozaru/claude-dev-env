@@ -133,13 +133,13 @@ def preflight(args):
             f"{args.sf} がありません",
             "sudo apt-get install -y fluid-soundfont-gm で再導入するか、"
             "手元にある .sf2 / .sf3 を --sf で指定してください"
-            "（使える音源は soundfonts.md の台帳にあるものだけです）。"))
+            "（使える音源は references/instruments.md の台帳にあるものだけです）。"))
     elif os.path.getsize(args.sf) == 0:
         problems.append((
             "音源ファイル",
             f"{args.sf} が 0 バイトです",
             "音源が壊れています。再導入するか、別の音源を --sf で指定してください"
-            "（使える音源は soundfonts.md の台帳にあるものだけです）。"))
+            "（使える音源は references/instruments.md の台帳にあるものだけです）。"))
     for label, path in (("仕様書", args.spec), ("MIDI ファイル", args.mid)):
         if not os.path.isfile(path):
             problems.append((

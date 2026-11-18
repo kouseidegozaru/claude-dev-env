@@ -148,12 +148,12 @@ def main():
     ap = argparse.ArgumentParser(description="Check a theme sheet against the gate.")
     ap.add_argument("theme", help="theme sheet JSON (theme-sheet/1)")
     ap.add_argument("--calibration", default=None,
-                    help="calibration record JSON (default: ../calibration/calibration_record.json)")
+                    help="calibration record JSON (default: calibration/calibration_record.json)")
     args = ap.parse_args()
     cal_path = args.calibration
     if cal_path is None:
         cand = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                            "..", "calibration", "calibration_record.json")
+                            "calibration", "calibration_record.json")
         cal_path = cand if os.path.exists(cand) else None
     authority, _ = load_authority(cal_path)
     try:

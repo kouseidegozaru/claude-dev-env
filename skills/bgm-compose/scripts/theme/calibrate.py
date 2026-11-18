@@ -23,7 +23,7 @@ Run at first use of the skill, and again whenever a checker or a
 generation system changes. Writes the calibration record JSON.
 
 Usage:
-  python3 calibrate.py [--out ../calibration/calibration_record.json]
+  python3 calibrate.py [--out calibration/calibration_record.json]
 """
 import argparse
 import json
@@ -104,7 +104,7 @@ def main():
     ap = argparse.ArgumentParser(description="Calibrate the theme gate.")
     ap.add_argument("--out", default=os.path.join(
         os.path.dirname(os.path.abspath(__file__)),
-        "..", "calibration", "calibration_record.json"))
+        "calibration", "calibration_record.json"))
     args = ap.parse_args()
 
     t_start = time.time()

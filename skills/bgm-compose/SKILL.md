@@ -17,6 +17,7 @@ description: ゲームBGMなどのインストゥルメンタルを作る統合�
 - `scripts/render_mix.py` — 主旋律チャンネルだけを自作ピアノ音源で描き、他パートを GM で描く混合レンダラー（ピアノ主導の曲用）
 - `scripts/measure.py` — 音響計測（LUFS / トゥルーピーク / 低域比 / スペクトル重心 / 継ぎ目段差）
 - `scripts/check_midi.py` — 記譜上の機械確認（主題の戻り、音域、跳躍）
+- `scripts/selfcheck.py` — スキルの横断点検（道具・台帳の全音源の試し鳴らし・全スクリプトの構文・作曲スモーク・校正記録を一括確認）
 - `scripts/theme/` — 主題選別の前段一式（候補生成・校正済み検査器・回収テスト。手順0で使う）
 - `scripts/render_sfz.py` — 汎用 SFZ レンダラー（SFZ 楽器とフォルダ楽器を鳴らす）
 - `scripts/render_guitar.py` — 実録ギター DI サンプル専用レンダラー
@@ -44,6 +45,9 @@ description: ゲームBGMなどのインストゥルメンタルを作る統合�
   render.py は描画直後に無音・ノイズフロアだけの出力を検出して失敗として報告する。
   手で先に確かめたい場合は `which fluidsynth ffmpeg ffprobe` と
   `ls -l /usr/share/sounds/sf2/FluidR3_GM.sf2` で足りる。
+- 環境の移設・復旧直後と、スキル自体を編集した後は `python3 scripts/selfcheck.py`
+  で横断点検する（道具・台帳の全音源の試し鳴らし・全スクリプトの構文・作曲
+  スモーク・校正記録の読み取りを一括確認）。FAIL があれば直してから作曲に入る。
 
 作業ファイルは曲ごとのフォルダに置く（例: `~/workspace/midi-bgm/<曲名>/`）。
 フォルダには仕様書、生成 MIDI、render.py の出力（完成 OGG と render_report.json）を残す。
@@ -57,8 +61,10 @@ description: ゲームBGMなどのインストゥルメンタルを作る統合�
 
 流れ:
 
-1. 初回のみ校正を確認する: `scripts/theme/calibrate.py` を実行し、権限のある検査器が
-   `scripts/theme/calibration/calibration_record.json` と一致することを確かめる。
+1. 初回のみ校正を確認する: `scripts/theme/calibrate.py --out /tmp/calibration_new.json`
+   を実行し、結果が同梱の `scripts/theme/calibration/calibration_record.json` と
+   一致することを確かめる（同梱の記録は上書きしない。検査器の既定の権限セットも
+   同じ記録から読まれる）。
    権限の無い項目（モチーフ等）は警告としてのみ扱い、足切りには使わない。
 2. 初回のみ回収テストで自分の選別を検証する: `scripts/theme/recovery_test.py` で
    目隠しプールを作り、譜面だけを見て全順位を付け、理由をファイルに固定してから

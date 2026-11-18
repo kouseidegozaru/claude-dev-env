@@ -16,7 +16,7 @@
 | 楽器 | 種別 | 出所 / ライセンス | 場所（導入済み環境） | 鳴らし方 | 音域の目安 | 備考 |
 |---|---|---|---|---|---|---|
 | ピアノ（forge_piano） | 鍵盤 | Salamander Grand Piano / CC BY 3.0（要クレジット表記） | スキル外に保持（36MB のためリポジトリに含めない）。設計は `assets/forge_piano.sfz` | SF2 | 全域 | 主旋律ピアノの本命。詳細は第2部の forge_piano 行 |
-| カリンバ | 撥弦 | FreePats / CC0 | ~/workspace/soundfonts/freepats-kalimba/…/Kalimba-20190723.sfz | SFZ (oneshot) | 48〜76 | ラウンドロビン付き。温かめの音 |
+| カリンバ | 撥弦 | FreePats / CC0 | ~/workspace/soundfonts/freepats-kalimba/Kalimba-SFZ-20190723/Kalimba-20190723.sfz | SFZ (oneshot) | 48〜76 | ラウンドロビン付き。温かめの音 |
 | アコギ（Emily Guitar） | 撥弦 | Karoryfer / CC0 | ~/workspace/soundfonts/emily/Emilyguitar/emily_basic.sfz | SFZ (oneshot) | 37〜86 | スチール弦。3層＋RR。chords/five_voice 等の別プログラムあり |
 | アコギ（Shinyguitar） | 撥弦 | Karoryfer / CC0 | ~/workspace/soundfonts/sfz-extra/karoryfer.shinyguitar/Shinyguitar/Programs/acoustic.sfz | SFZ (oneshot) | 37〜84 | 明るめの音色。Emily と使い分け可 |
 | エレキギター Black | 撥弦 | Karoryfer Black And Green / CC0 | ~/workspace/soundfonts/bng-release/Samples/black/ord | フォルダ（render_guitar.py） | 52〜98 | Hofner Club の DI。アンプ処理前提（guitar.md 参照） |

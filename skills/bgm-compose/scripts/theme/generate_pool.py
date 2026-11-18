@@ -85,6 +85,11 @@ def main():
     ap.add_argument("--calibration", default=None)
     args = ap.parse_args()
 
+    if args.calibration is None:
+        cand = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                            "calibration", "calibration_record.json")
+        if os.path.exists(cand):
+            args.calibration = cand
     authority, _ = load_authority(args.calibration)
     n_a = round(args.total * 0.5)
     n_b = round(args.total * 0.3)
