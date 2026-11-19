@@ -1,0 +1,5 @@
+{
+  "note": "固定 spec のイベント列ハッシュ。spec か生成器を変えたら --update-golden で再生成する。",
+  "spec_spring_noon": "82c9bb0ca57ab7cdb17fc4f1a9f90b52ffa0ef8e6fc2204ca84f368e2e5f13be",
+  "spec_loop_lake": "1bae930abba3666f127ef16a48076e1473b8965a694c59b35551549d00a83eee"
+}

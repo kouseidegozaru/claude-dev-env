@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "env": {
+    "lock_sha256": "1a66f6d2ae1e65d0d63d71c77571ece185b16f8676129ff6d921ae4bf8e56701"
+  },
+  "deterministic": true,
+  "cases": {
+    "gm": {
+      "expect": "success",
+      "framehash": "08c5eec528fb7c8c807f4423739d3ee4fcdea2fab49d3a488da0cbf6bffaed20",
+      "metrics": {
+        "lufs": -23.13,
+        "true_peak": -11.77,
+        "duration_s": 8.335,
+        "band_low_pct": 28.63,
+        "centroid_hz": 545.5
+      },
+      "approved": {
+        "date": "2026-11-19",
+        "reason": "初回登録（スキル改善の第1弾で新設）"
+      }
+    },
+    "sfz": {
+      "expect": "success",
+      "framehash": "a7a29c1965f546650eaf319d3e457366781a344356d9bf0aab3180c4fbfb5153",
+      "metrics": {
+        "lufs": -20.24,
+        "true_peak": -0.98,
+        "duration_s": 4.15,
+        "band_low_pct": 6.03,
+        "centroid_hz": 671.5
+      },
+      "approved": {
+        "date": "2026-11-19",
+        "reason": "初回登録（スキル改善の第1弾で新設）"
+      }
+    },
+    "guitar": {
+      "expect": "success",
+      "framehash": "0e8ef0a2c14d3bc30c8493250664cf8608ac474d0da59927d83c5c7dfd5b0803",
+      "metrics": {
+        "lufs": -19.36,
+        "true_peak": -7.64,
+        "duration_s": 3.85,
+        "band_low_pct": 47.73,
+        "centroid_hz": 386.0
+      },
+      "approved": {
+        "date": "2026-11-19",
+        "reason": "初回登録（スキル改善の第1弾で新設）"
+      }
+    },
+    "loop": {
+      "expect": "success",
+      "framehash": "9c62082b3cf419ab5d9e7491104392b5aa48916f69d65b54cb89ab5daefee1f1",
+      "metrics": {
+        "lufs": -14.4,
+        "true_peak": -2.52,
+        "duration_s": 5.6,
+        "band_low_pct": 0.65,
+        "centroid_hz": 584.9
+      },
+      "approved": {
+        "date": "2026-11-19",
+        "reason": "初回登録（スキル改善の第1弾で新設）"
+      }
+    },
+    "broken": {
+      "expect": "failure",
+      "failed_as_expected": true,
+      "approved": {
+        "date": "2026-11-19",
+        "reason": "初回登録（スキル改善の第1弾で新設）"
+      }
+    }
+  }
+}
